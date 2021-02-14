@@ -1,4 +1,4 @@
-
+; Script by Benjamin Lee
 ; Hand Pan, Brush, Eraser, Zoom In/Out
 
 PreviousTool := 0
