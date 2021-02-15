@@ -1,5 +1,15 @@
 ; Script by Benjamin Lee
 ; Hand Pan, Brush, Eraser, Zoom In/Out
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+Menu, Tray, Icon, tray.ico,1
+Menu, Tray, NoStandard
+Menu, Tray, Add, Toggle Draw Mode, Sus
+Menu, Tray, Add, 
+Menu, Tray, Standard
+Menu, Tray, Default, Toggle Draw Mode
 
 PreviousTool := 0
 
@@ -59,7 +69,17 @@ zoomOut() {
 }
 
 ; Keybinds
-^+z::Suspend ; Toggle Script
+^+z:: ; Toggle Script
+    Suspend
+    Goto, toggleIcon
+    Sus:
+    Suspend, Toggle
+    toggleIcon:
+    If (A_IsSuspended)
+        Menu, Tray, Icon , trayd.ico,,1
+    Else
+        Menu, Tray, Icon , tray.ico,,1
+    Return
 Space:: ; Hand Pan
     handPan() 
     keywait, Space
