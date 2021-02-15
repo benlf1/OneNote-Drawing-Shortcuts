@@ -4,7 +4,9 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-Menu, Tray, Icon, tray.ico,1
+Goto, Sus ; Start off the script suspended
+
+Menu, Tray, Icon, trayd.ico,1
 Menu, Tray, NoStandard
 Menu, Tray, Add, Toggle Draw Mode, Sus
 Menu, Tray, Add, 
